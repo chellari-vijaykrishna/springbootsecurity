@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Facebook-like Dashboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      background-color: #f0f2f5;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .sidebar, .right-panel {
+      width: 20%;
+      background-color: white;
+      padding: 1rem;
+      border-right: 1px solid #ccc;
+      overflow-y: auto;
+    }
+
+    .right-panel {
+      border-left: 1px solid #ccc;
+    }
+
+    .feed {
+      width: 60%;
+      padding: 1rem;
+      overflow-y: auto;
+    }
+
+    .menu-item {
+      margin-bottom: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #1877f2;
+    }
+
+    .post {
+      background-color: white;
+      padding: 1rem;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    .post-header {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .post-header a {
+      text-decoration: none;
+      color: #1877f2;
+    }
+
+    .post-content {
+      margin-bottom: 10px;
+    }
+
+    .post-actions {
+      display: flex;
+      gap: 10px;
+      color: #65676b;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .friend {
+      margin-bottom: 10px;
+      padding: 8px;
+      background-color: #e4e6eb;
+      border-radius: 5px;
+    }
+
+    .status-box {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.05);
+    }
+
+    .status-box textarea {
+      width: 100%;
+      height: 60px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 10px;
+      resize: none;
+    }
+
+    .status-box button {
+      margin-top: 10px;
+      background-color: #1877f2;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      float: right;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar, .right-panel {
+        display: none;
+      }
+
+      .feed {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="menu-item">🏠 Home</div>
+    <div class="menu-item">👥 Friends</div>
+    <div class="menu-item">👨‍👩‍👧‍👦 Groups</div>
+    <div class="menu-item">🛍️ Marketplace</div>
+    <div class="menu-item">🎬 Watch</div>
+  </div>
+
+  <!-- Main Feed -->
+  <div class="feed">
+    <!-- Status update -->
+    <div class="status-box">
+      <textarea id="statusInput" placeholder="What's on your mind?"></textarea>
+      <button onclick="addPost()">Post</button>
+    </div>
+
+    <!-- Posts container -->
+    <div id="postContainer">
+      <div class="post">
+        <div class="post-header"><a href="/user">John Doe</a></div>
+        <div class="post-content">Just visited an amazing place! 🌄</div>
+        <div class="post-actions">
+          <span onclick="likePost(this)">👍 Like</span>
+          <span>💬 Comment</span>
+          <span>↗️ Share</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Panel -->
+  <div class="right-panel">
+    <h3>Friends Online</h3>
+    <div class="friend">🟢 Mike Johnson</div>
+    <div class="friend">🟢 Emma Watson</div>
+    <div class="friend">🟢 Liam Brown</div>
+    <div class="friend">🟢 Olivia Taylor</div>
+  </div>
+
+  <script>
+    function addPost() {
+      const input = document.getElementById('statusInput');
+      const content = input.value.trim();
+      if (content === '') return;
+
+      const container = document.getElementById('postContainer');
+      const newPost = document.createElement('div');
+      newPost.className = 'post';
+      newPost.innerHTML = ` 
+        <div class="post-header"><a href="/user">You</a></div>
+        <div class="post-content">${content}</div>
+        <div class="post-actions">
+          <span onclick="likePost(this)">👍 Like</span>
+          <span>💬 Comment</span>
+          <span>↗️ Share</span>
+        </div>
+      `;
+      container.prepend(newPost); // Add new post on top
+      input.value = '';
+    }
+
+    function likePost(el) {
+      if (el.classList.contains('liked')) {
+        el.classList.remove('liked');
+        el.textContent = '👍 Like';
+      } else {
+        el.classList.add('liked');
+        el.textContent = '💙 Liked';
+      }
+    }
+  </script>
+
+</body>
+</html>

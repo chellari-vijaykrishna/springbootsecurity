@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Government Home Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #002868;
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .login-button {
+            background-color: #f5f5f5;
+            color: #002868;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .login-button:hover {
+            background-color: #e5e5e5;
+        }
+
+        nav {
+            background-color: #0050b3;
+            padding: 10px 40px;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .banner {
+            background-color: #e5ecf5;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .banner h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #002868;
+        }
+
+        .content {
+            display: flex;
+            padding: 40px;
+            gap: 40px;
+        }
+
+        .box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            flex: 1;
+        }
+
+        .box h3 {
+            margin-top: 0;
+            color: #003366;
+        }
+
+        .box ul {
+            padding-left: 20px;
+        }
+
+        .box li {
+            margin-bottom: 8px;
+        }
+
+        footer {
+            background-color: #002868;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #a8d0ff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>National Government Portal</h1>
+    <a href="/login" class="login-button">Login</a>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Services</a>
+    <a href="#">Departments</a>
+    <a href="#">News</a>
+    <a href="#">Contact</a>
+</nav>
+
+<div class="banner">
+    <h2>Welcome to the Official Government Website</h2>
+    <p>Delivering public services to citizens efficiently and transparently.</p>
+</div>
+
+<div class="content">
+    <div class="box">
+        <h3>Latest News</h3>
+        <ul>
+            <li><a href="news.html">New citizen portal launched – May 2025</a></li>
+            <li><a href="covid-updates.html">COVID-19 updates and vaccination drives</a></li>
+            <li><a href="rural-services.html">Online services expanded in rural areas</a></li>
+        </ul>
+    </div>
+    <div class="box">
+        <h3>Online Services</h3>
+        <ul>
+            <li><a href="passport.html">Apply for Passport</a></li>
+            <li><a href="tax-records.html">Check Tax Records</a></li>
+            <li><a href="aadhaar.html">Download Aadhaar Card</a></li>
+        </ul>
+    </div>
+    <div class="box">
+        <h3>Quick Links</h3>
+        <ul>
+            <li><a href="pmo.html">PMO India</a></li>
+            <li><a href="health.html">Ministry of Health</a></li>
+            <li><a href="employment.html">National Employment Portal</a></li>
+        </ul>
+    </div>
+</div>
+
+<footer>
+    <a href="#">Terms and Conditions</a> |
+    <a href="#">Privacy Policy</a> |
+    <a href="#">Accessibility</a> |
+    <a href="#">Help</a> |
+    <a href="#">Feedback</a> <br>
+    <br>
+    &copy; 2025 Government of India. All Rights Reserved.
+</footer>
+
+</body>
+</html>
